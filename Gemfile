@@ -33,4 +33,6 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 # Used for encrypting User passwords
 gem 'bcrypt'
+# Devise authentication system
+gem 'devise'
 require 'digest/md5'
