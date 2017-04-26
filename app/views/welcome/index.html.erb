@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Blocipedia Home Page</h1>
+<p>This is blocipedia home page, what do you want to do?</p>
+<div class="col-md-4">
+      <%= link_to "Wiki's List", wikis_path, class: 'btn btn-default'%>
+</div>
+<p> </p>
+<div class="col-md-4">
+      <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary'%>
+</div>
