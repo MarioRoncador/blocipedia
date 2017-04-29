@@ -35,4 +35,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt'
 # Devise authentication system
 gem 'devise'
+# Authorization system
+gem "pundit"
+# Email sender encription of username and password
+gem 'figaro', '1.0'
 require 'digest/md5'
