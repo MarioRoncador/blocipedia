@@ -39,4 +39,7 @@ gem 'devise'
 gem "pundit"
 # Email sender encription of username and password
 gem 'figaro', '1.0'
+# Fake data seeding 
+gem 'faker'
+
 require 'digest/md5'
