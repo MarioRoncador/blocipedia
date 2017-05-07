@@ -1,0 +1,5 @@
+<% current_user.role = 'standard' %>
+
+<h1> You're account has been downgraded to standard. </h1>
+
+<%= button_to "Back to Home", root_path, data: { confirm: "Are you sure you want to downgrade to standard?" }, class: 'btn btn-info', method: :get %>

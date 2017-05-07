@@ -8,6 +8,7 @@ class WikisController < ApplicationController
   end
 
   def new
+    @user = current_user
     @wiki = Wiki.new
   end
 
@@ -17,6 +18,7 @@ class WikisController < ApplicationController
 
   def create
 
+    @user = current_user
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]

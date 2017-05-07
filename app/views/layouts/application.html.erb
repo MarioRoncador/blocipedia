@@ -29,30 +29,32 @@
       <% end %>
     </ul>
 
-      <div class = "pull-right">
-        <br> Subscription:<button type="button" class="btn-warning"><%= current_user.role %></button></b> <br />
-      </div>
-
-      <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
-      </div>
-      <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:alert] %>
-      </div>
-      <% end %>
-
-      <%= yield %>
+    <% if user_signed_in? %>
+    <div class = "pull-right">
+      <br> Subscription: <button type="button" class="btn btn-info"><%= current_user.role %></button></b> <br />
     </div>
+    <% end %>
 
-    <footer class="container footer">
-      <div class="text-muted">
-        Blocipedia - All right reserved.
-      </div>
-    </footer>
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+    <% elsif flash[:alert] %>
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
 
-  </body>
-  </html>
+    <%= yield %>
+  </div>
+
+  <footer class="container footer">
+    <div class="text-muted">
+      Blocipedia - All right reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

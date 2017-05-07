@@ -37,11 +37,11 @@
 
   <% if current_user.premium? %>
   You have the ability to create Wikis.
-  <%= button_to "Downgrade to standard", new_charge_path, data: { confirm: "Are you sure you want to downgrade to premium?" }, class: 'btn btn-warning', method: :get %>
+  <%= button_to "Downgrade to standard", downgrade_user_path(current_user), data: { confirm: "Are you sure you want to downgrade to standard?" }, class: 'btn btn-info', method: :post %>
   <% end %>
 
   <% if current_user.standard? %>
-  <%= button_to "Upgrade to premium", new_charge_path, data: { confirm: "Are you sure you want to upgrade to premium?" }, class: 'btn btn-warning', method: :get %>
+  <%= button_to "Upgrade to premium", new_charge_path, data: { confirm: "Are you sure you want to upgrade to premium?" }, class: 'btn btn', method: :get %>
   <% end %>
 </div>
 
