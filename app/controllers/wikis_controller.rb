@@ -1,6 +1,10 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to(current_user)
+
+    if current_user.premium? || current_user.admin?
+      @wikis = Wiki.all
+    end
   end
 
   def show
@@ -17,11 +21,8 @@ class WikisController < ApplicationController
   end
 
   def create
-
-    @user = current_user
-    @wiki = Wiki.new
-    @wiki.title = params[:wiki][:title]
-    @wiki.body = params[:wiki][:body]
+    @wiki = Wiki.create(wiki_params)
+    @wiki.user = current_user
 
     if @wiki.save
       flash[:notice] = "Your wiki has been created."
@@ -35,8 +36,8 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki.title = params[:wiki][:title]
-    @wiki.body = params[:wiki][:body]
+
+    @wiki.assign_attributes(wiki_params)
 
     if @wiki.save
       flash[:notice] = "Your wiki was updated."
@@ -58,4 +59,11 @@ class WikisController < ApplicationController
       render :show
     end
   end
+
+  private
+
+ def wiki_params
+   params.require(:wiki).permit(:title, :body, :private )
+ end
+
 end
