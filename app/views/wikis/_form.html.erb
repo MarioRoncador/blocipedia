@@ -17,10 +17,6 @@
     </div>
   <% end %>
 
-  <% if @wiki.private %>
-     <%= render partial: 'collaborators/form', locals: { f: f } %>
-  <% end %>
-
   <%= f.submit "Save", class: 'btn btn-success' %>
 
 <% end %>

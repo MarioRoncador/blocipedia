@@ -1,12 +1,12 @@
 <h1>List of Wikis</h1>
 <div class="media">
   <div class="media-body">
-    <h3 class="media-heading"><%= @wiki.title %></h3>
+    <h3 class="media-heading"><%= markdown(@wiki.title) %></h3>
   </div>
 </div>
 <div class="row">
   <div class="col-md-8">
-    <p><%= @wiki.body %></p>
+    <p><%= markdown(@wiki.body) %></p>
   </div>
   <div class="col-md-4">
     <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>

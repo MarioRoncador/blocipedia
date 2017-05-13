@@ -43,5 +43,7 @@ gem 'figaro', '1.0'
 gem 'faker'
 # Stripe integration
 gem 'stripe'
+# Allows the use of markdown
+gem 'redcarpet'
 
 require 'digest/md5'

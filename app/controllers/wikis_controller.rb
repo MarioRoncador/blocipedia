@@ -1,4 +1,6 @@
+
 class WikisController < ApplicationController
+  include ApplicationHelper
   def index
     @wikis = Wiki.visible_to(current_user)
 
