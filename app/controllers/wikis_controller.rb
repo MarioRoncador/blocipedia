@@ -2,11 +2,7 @@
 class WikisController < ApplicationController
   include ApplicationHelper
   def index
-    @wikis = Wiki.visible_to(current_user)
-
-    if current_user.premium? || current_user.admin?
-      @wikis = Wiki.all
-    end
+      @wikis = policy_scope(Wiki)
   end
 
   def show

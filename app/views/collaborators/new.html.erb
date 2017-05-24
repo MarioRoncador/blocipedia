@@ -1,0 +1,7 @@
+<h1> Add Collaborators </h1>
+ <%=  form_for :collaborators, url: collaborators_path do |f| %>
+   <%= debug(params) %>
+   <%= f.hidden_field :wiki_id, :value => params[:wiki_id] %>
+   <%= f.select :user_id, options_from_collection_for_select(@users, 'id', 'name') %>
+   <%= f.submit "Save" %>
+ <% end %> 

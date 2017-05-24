@@ -4,10 +4,44 @@
   <div class="col-md-4">
     <p>Guidelines for wikis</p>
     <ul>
-      <li>Update your wiki with interesting stuff!</li>
+      <li>Make sure it rhymes.</li>
+      <li>Don't use the letter "A".</li>
+      <li>The incessant use of hashtags will get you banned.</li>
     </ul>
   </div>
   <div class="col-md-8">
-      <%= render partial: 'wikis/form' %>
+    <%= form_for @wiki do |f| %>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+      </div>
+
+      <div>
+        <%= f.label :private do %>
+          <%= f.check_box :private %> Private wiki
+        <% end %>
+      </div>
+
+      <div>
+        <p>Add Collaborators</p>
+        <% if current_user.id == @wiki.user_id || current_user.admin? %>
+          <%= collection_check_boxes(:wiki, :user_ids, User.all, :id, :email) do |b| %>
+            <%= b.check_box %>
+            <%= b.label %><br />
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+
+    <% end %>
   </div>
 </div>
