@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :collaborators, only: [:create, :new, :destroy] 
+  resources :collaborators, only: [:create, :new, :update, :destroy] 
 
   resources :wikis
 
